@@ -1,0 +1,27 @@
+/***************************************************
+*                                                  *
+*           MCP - Mind Control Platform            *
+*                                                  *
+***************************************************/
+
+
+This library contains java code for a server-client communication over TCP.
+It can be use on various platforms for differnet purposes. 
+
+It was originaly created to enable commuunction between a PC application 
+(Processing  the EEG signals) to an android app (that has 
+the ability to control the motors using an arduino board).
+The PC app can transperntly invoke commands that will operate the 
+motors.
+
+It has three parts 
+
+- Server
+- client
+- Commands interface
+
+The server (The android app) must implement the interface and translate each 
+coomand to a movement of the motors, as guranteed to the client, 
+which will invoke the commands depending on the data it reads from the EEG.
+
+For farther questions you may contact me at sapir.caduri@gmail.com

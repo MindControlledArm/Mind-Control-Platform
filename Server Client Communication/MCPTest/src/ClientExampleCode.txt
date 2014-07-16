@@ -1,0 +1,48 @@
+
+import mcplib.client.*;
+
+void example()
+{
+
+		// The IP address of the Android phone
+		String IP_ADDR = "127.0.0.1"; 
+		
+		// Create an instance of the MCPClient
+		MCPClient client = new MCPClient();
+		
+		// Attempt to connect the phone
+		client.connect(IP_ADDR); 		
+		
+		// Using this method, you will be able to know which device is connected to the arduino 
+		Utils.DeviceOpcode device = client.getDeviceOpcode();
+
+		if (device == Utils.DeviceOpcode.RoboticArm)
+		{
+			client.gripperRotateRight(54);
+
+			// or maybe...
+			client.armDown();
+
+			// And so on..
+			client.setInAFoldedPosition();
+		}
+		
+		
+		if (device == Utils.DeviceOpcode.CameraArm)
+		{
+
+			client.turnCameraOn();
+
+			// Zoom by 1
+			client.ZoomIn();
+
+			// Take a photo
+			client.snap();
+			
+			// If you'd like to shut it down
+			client.turnCameraOff();
+		}
+		
+
+	}
+}
